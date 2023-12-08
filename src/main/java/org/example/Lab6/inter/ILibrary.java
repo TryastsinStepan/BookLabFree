@@ -2,6 +2,7 @@ package org.example.Lab6.inter;
 
 
 import org.example.Lab6.list.MyDoubleList;
+import org.example.Lab6.list.MyLinkedList;
 
 public interface ILibrary extends Cloneable{
     int getNumberOfHalls();

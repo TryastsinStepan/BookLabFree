@@ -30,7 +30,13 @@ public class ScientificLibraryHall implements IHall {
         }
         countBook = bookList.size();
     }
-
+    public ScientificLibraryHall(String name, IBook[] book) {
+        this.nameHall = name;
+        this.bookList = new MyLinkedList<>();
+        for (int i = 0; i < book.length; i++) {
+            bookList.addByIndex(i,book[i]);
+        }
+    }
 
     @Override
     public void showAllBookInHall() {

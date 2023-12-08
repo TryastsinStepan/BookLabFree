@@ -10,18 +10,24 @@ import org.example.Lab6.list.MyDoubleList;
 
 public class ScientificLibrary implements ILibrary {
     private MyDoubleList<IHall> listHall;
+    private IHall arrayHall[];
     private int countHall = 0;
 
     public ScientificLibrary(int countHall, int countBook[]) {
         this.countHall = countHall;
         listHall = new MyDoubleList<>();
         for (int i = 0; i < countHall; i++) {
-            for (int j = 0; j < countBook[i]; j++) { // Исправлено условие цикла на j < countBook[i]
+            for (int j = 0; j <= countBook[i]; j++) {
                 listHall.addByIndex(i, (IHall) new ChildrenLibraryHall(j, "?"));
             }
         }
     }
-
+    public ScientificLibrary(String name, ScientificLibraryHall[] halls) {
+        this.listHall = new MyDoubleList<>();
+        for (int i = 0; i < halls.length; i++) {
+            listHall.addByIndex(i,halls[i]);
+        }
+    }
     public ScientificLibrary(MyDoubleList<IHall> hall) {
         this.listHall = hall;
     }

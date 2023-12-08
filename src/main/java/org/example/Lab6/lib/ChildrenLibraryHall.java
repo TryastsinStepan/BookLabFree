@@ -3,6 +3,7 @@ package org.example.Lab6.lib;
 
 import org.example.Lab6.data.ChildrenBook;
 import org.example.Lab6.exception.BookIndexOutOfBoundsException;
+import org.example.Lab6.exception.InvalidBookCountException;
 import org.example.Lab6.exception.InvalidBookPriceException;
 import org.example.Lab6.inter.IBook;
 import org.example.Lab6.inter.IHall;
@@ -30,6 +31,13 @@ public class ChildrenLibraryHall implements IHall {
             bookList.addByIndex(i, (IBook) new ChildrenBook("?", 0));
         }
         countBook = bookList.size();
+    }
+    public ChildrenLibraryHall(String name, IBook[] book) {
+        this.nameHall = name;
+        this.bookList = new MyLinkedList<>();
+        for (int i = 0; i < book.length; i++) {
+            bookList.addByIndex(i,book[i]);
+        }
     }
     @Override
     public void showAllBookInHall() {
@@ -177,7 +185,7 @@ public class ChildrenLibraryHall implements IHall {
         StringBuilder sb = new StringBuilder();
         sb.append("Детский зал библиотеки: \n");
         sb.append("Название зала: '").append(nameHall).append("'\n");
-        sb.append("Количество книг: ").append(countBook).append("\n");
+        sb.append("Количество книг: ").append(bookList.size()).append("\n");
         sb.append("Информация о книгах в зале:\n");
 
         for (int i = 0; i < countBook; i++) {
@@ -188,6 +196,5 @@ public class ChildrenLibraryHall implements IHall {
     }
 
 }
-
 
 

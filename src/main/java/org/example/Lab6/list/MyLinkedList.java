@@ -82,7 +82,7 @@ public class MyLinkedList<T> {
     }
 
     public Node<T> getByIndex(int index) {
-        if (index < 0 || index >= count || head == null) {
+        if (index < 0 || index > count || head == null) {
             return null;
         }
 

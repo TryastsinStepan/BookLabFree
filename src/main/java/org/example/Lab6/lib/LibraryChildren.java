@@ -26,8 +26,17 @@ public class LibraryChildren implements ILibrary {
         }
     }
 
-    public LibraryChildren(MyDoubleList<IHall> hall) {
-        this.listHall = hall;
+
+
+    public LibraryChildren(MyDoubleList<IHall> listHall) {
+        this.listHall = listHall;
+    }
+    public LibraryChildren(String name, ChildrenLibraryHall[] halls) {
+        this.listHall = new MyDoubleList<>();
+        for (int i = 0; i < halls.length; i++) {
+            listHall.addByIndex(i,halls[i]);
+        }
+        countHall = halls.length;
     }
 
     @Override
